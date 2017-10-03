@@ -3,17 +3,6 @@ const Babel = require("../babel");
 
 // Basic smoke tests for babel-standalone
 describe("babel-standalone", () => {
-  it("handles the es2015-no-commonjs preset", () => {
-    const output = Babel.transform('const getMessage = () => "Hello World"', {
-      presets: ["es2015-no-commonjs"],
-    }).code;
-    assert.equal(
-      output,
-      "var getMessage = function getMessage() {\n" +
-        '  return "Hello World";\n' +
-        "};",
-    );
-  });
   it("handles the es2015-loose preset", () => {
     const output = Babel.transform("class A {}", {
       presets: ["es2015-loose"],
